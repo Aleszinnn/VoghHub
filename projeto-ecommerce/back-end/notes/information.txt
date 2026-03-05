@@ -1,0 +1,1 @@
+Para rodar o servidor, precisa colocar no terminal integrado da página do back-end.
