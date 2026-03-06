@@ -13,14 +13,12 @@ export const Container = styled.div`
   font-family: 'Inter', sans-serif;
 `;
 
-// --- TEXTO EM MOVIMENTO INFINITO ---
 export const InfiniteText = styled.div`
-  padding: 100px 0;
+  padding: 80px 0;
   white-space: nowrap;
   display: flex;
   border-bottom: 1px solid #333;
   overflow: hidden;
-  
   h2 {
     font-size: 8rem;
     font-weight: 900;
@@ -30,9 +28,11 @@ export const InfiniteText = styled.div`
     animation: ${marquee} 20s linear infinite;
     padding-right: 50px;
   }
+  @media (max-width: 768px) {
+    h2 { font-size: 4rem; }
+  }
 `;
 
-// --- GRID DE PRODUTOS "THE CHOSEN ONES" ---
 export const HighlightSection = styled.section`
   display: flex;
   padding: 100px 5%;
@@ -51,46 +51,6 @@ export const FeaturedCard = styled.div`
   display: flex;
   align-items: flex-end;
   padding: 40px;
-
-  &:hover {
-    filter: grayscale(0%);
-    flex: 1.5;
-  }
-
-  &::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-  }
-`;
-
-// --- INTERATIVIDADE: O RADAR DE TENDÊNCIAS ---
-export const RadarContainer = styled.div`
-  height: 500px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: radial-gradient(circle, #1a1a1a 0%, #0a0a0a 100%);
-  margin: 50px 0;
-`;
-
-export const Circle = styled.div`
-  width: 300px;
-  height: 300px;
-  border: 1px solid #333;
-  border-radius: 50%;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  .point {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    background: #ff3e3e;
-    border-radius: 50%;
-    box-shadow: 0 0 15px #ff3e3e;
-  }
+  &:hover { filter: grayscale(0%); flex: 1.5; }
+  @media (max-width: 1024px) { height: 400px; }
 `;

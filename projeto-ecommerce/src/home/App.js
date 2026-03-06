@@ -45,6 +45,7 @@ export const Nav = styled.ul`
   display: flex;
   gap: 40px;
   list-style: none;
+  @media (max-width: 768px) { gap: 15px; }
 `;
 
 export const NavLink = styled.li`
@@ -55,6 +56,7 @@ export const NavLink = styled.li`
   color: #666;
   transition: 0.3s;
   &:hover { color: #000; }
+  @media (max-width: 768px) { font-size: 0.7rem; }
 `;
 
 // --- SEÇÕES ---
@@ -67,6 +69,7 @@ export const SectionTitle = styled.div`
   gap: 15px;
   h2 { font-size: 1.8rem; text-transform: uppercase; letter-spacing: 1px; }
   hr { flex: 1; border: 0; border-top: 1px solid #eee; }
+  @media (max-width: 768px) { margin: 40px auto 20px; h2 { font-size: 1.4rem; } }
 `;
 
 export const ProductGrid = styled.section`
@@ -76,6 +79,7 @@ export const ProductGrid = styled.section`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 30px;
+  @media (max-width: 600px) { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 15px; }
 `;
 
 // --- CARDS DE PRODUTO ---
@@ -163,5 +167,10 @@ export const Newsletter = styled.div`
   }
   button {
     padding: 12px 25px; background: #ff3e3e; color: #fff; border: none; font-weight: bold; border-radius: 4px; cursor: pointer;
+  }
+  @media (max-width: 600px) { 
+    padding: 20px; 
+    input { width: 100%; margin-right: 0; margin-bottom: 10px; }
+    button { width: 100%; }
   }
 `;

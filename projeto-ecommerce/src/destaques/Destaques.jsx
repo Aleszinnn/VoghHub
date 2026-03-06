@@ -13,7 +13,7 @@ function Destaques() {
   ];
 
   return (
-    <S.Container style={{ background: '#000', color: '#fff', overflowX: 'hidden' }}>
+    <S.Container>
       <GlobalStyle />
       
       {/* HEADER */}
@@ -29,7 +29,7 @@ function Destaques() {
       </Header>
 
       {/* LETREIRO INFINITO */}
-      <S.InfiniteText style={{ padding: '80px 0', borderBottom: '1px solid #222' }}>
+      <S.InfiniteText>
         <h2>THE FUTURE OF STYLE • HIGH FASHION • 2026 SEASON • </h2>
         <h2>THE FUTURE OF STYLE • HIGH FASHION • 2026 SEASON • </h2>
       </S.InfiniteText>
@@ -37,14 +37,16 @@ function Destaques() {
       {/* GRID COM HOVER COLORIDO */}
       <S.HighlightSection style={{ marginTop: '50px' }}>
         <S.FeaturedCard bg="https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=600">
+           <div style={{ padding: '40px' }}><h3>VOID_01</h3></div>
         </S.FeaturedCard>
         <S.FeaturedCard bg="https://images.unsplash.com/photo-1537832816519-689ad163238b?q=80&w=600">
+           <div style={{ padding: '40px' }}><h3>NEO_02</h3></div>
         </S.FeaturedCard>
       </S.HighlightSection>
 
       {/* TENDÊNCIAS FEMININAS */}
-      <section style={{ padding: '100px 5%' }}>
-        <div style={{ display: 'flex', gap: '20px', justifyContent: 'center' }}>
+      <section className="trends-section">
+        <div className="trends-grid">
           {tendencias.map((item, i) => (
             <div key={i} className="trend-card">
               <div className="trend-img" style={{ backgroundImage: `url(${item.img})` }}></div>
@@ -55,7 +57,7 @@ function Destaques() {
       </section>
 
       {/* FORMULÁRIO VIP */}
-      <section style={{ padding: '50px 5% 100px 5%', textAlign: 'center' }}>
+      <section className="vip-section">
         <h2 style={{ fontSize: '3rem', marginBottom: '20px' }}>QUER ACESSO VIP?</h2>
         <div className="email-box">
           <input type="email" placeholder="SEU MELHOR E-MAIL" />
@@ -82,46 +84,34 @@ function Destaques() {
         <p className="copyright">© 2026 ALL RIGHTS RESERVED. EXPERIMENTAL LABORATORY.</p>
       </footer>
 
-      {/* ESTILIZAÇÃO COMPLETA */}
       <style>{`
-        .trend-card { cursor: pointer; }
+        .trends-section { padding: 100px 5%; }
+        .trends-grid { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+        .trend-card { cursor: pointer; width: 300px; max-width: 100%; }
         .trend-img { 
-          width: 300px; height: 400px; background-size: cover; background-position: center;
+          width: 100%; height: 400px; background-size: cover; background-position: center;
           filter: grayscale(100%); transition: 0.5s ease;
         }
         .trend-card:hover .trend-img { filter: grayscale(0%); transform: scale(1.05); }
         
-        .email-box { 
-          display: inline-flex; border: 1px solid #333; padding: 5px; transition: 0.3s;
-        }
+        .vip-section { padding: 50px 5% 100px 5%; text-align: center; }
+        .email-box { display: inline-flex; border: 1px solid #333; padding: 5px; transition: 0.3s; width: 100%; max-width: 400px; }
         .email-box:hover { border-color: #ff3e3e; }
-        .email-box input { 
-          background: none; border: none; padding: 15px; color: #fff; width: 300px; outline: none;
-        }
-        .send-btn { 
-          background: #ff3e3e; border: none; color: #fff; padding: 0 20px; cursor: pointer;
-        }
+        .email-box input { background: none; border: none; padding: 15px; color: #fff; width: 100%; outline: none; }
+        .send-btn { background: #ff3e3e; border: none; color: #fff; padding: 0 20px; cursor: pointer; }
 
-        .footer-container {
-          padding: 100px 5%; border-top: 1px solid #222; text-align: center;
-          background: #050505; animation: footerReveal 1.5s ease-out;
-        }
-        @keyframes footerReveal {
-          from { opacity: 0; transform: translateY(50px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
+        .footer-container { padding: 100px 5%; border-top: 1px solid #222; text-align: center; background: #050505; animation: footerReveal 1.5s ease-out; }
+        @keyframes footerReveal { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
         .animation-box { margin-bottom: 40px; perspective: 1000px; display: inline-block; }
-        .rotating-cube {
-          width: 50px; height: 50px; border: 2px solid #ff3e3e;
-          animation: rotateCube 4s infinite linear;
-        }
-        @keyframes rotateCube {
-          from { transform: rotateX(0deg) rotateY(0deg); }
-          to { transform: rotateX(360deg) rotateY(360deg); }
-        }
-        .footer-links { margin-top: 30px; display: flex; gap: 40px; justify-content: center; color: #666; cursor: pointer; }
+        .rotating-cube { width: 50px; height: 50px; border: 2px solid #ff3e3e; animation: rotateCube 4s infinite linear; }
+        @keyframes rotateCube { from { transform: rotateX(0deg) rotateY(0deg); } to { transform: rotateX(360deg) rotateY(360deg); } }
+        .footer-links { margin-top: 30px; display: flex; gap: 40px; justify-content: center; color: #666; cursor: pointer; flex-wrap: wrap; }
         .footer-links span:hover { color: #fff; }
         .copyright { margin-top: 50px; font-size: 0.6rem; color: #333; letter-spacing: 2px; }
+
+        @media (max-width: 768px) {
+            .vip-section h2 { font-size: 2rem !important; }
+        }
       `}</style>
     </S.Container>
   );
